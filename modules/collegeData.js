@@ -1,3 +1,4 @@
+const pg = require('pg');
 const Sequelize = require('sequelize');
 var sequelize = new Sequelize('SenecaDB', 'SenecaDB_owner', '75jsrAYTyfvW', {
     host: 'ep-mute-sea-a5au0ybu-pooler.us-east-2.aws.neon.tech',
