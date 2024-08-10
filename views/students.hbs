@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col-md-12">
+        <br>
+        <h2>Students</h2>
+        <hr />
+        <a href="/students/add" class="btn btn-success float-end">Add New Student</a> 
+
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Student Num</th>
+                        <th>Full Name</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Status</th>
+                        <th>Course ID</th>
+                        <th></th> <!-- Empty header for the "Remove" button column -->
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each students}}
+                    <tr>
+                        <td>{{studentNum}}</td>
+                        <td><a href="/student/{{studentNum}}">{{firstName}} {{lastName}}</a></td>
+                        <td><a href="mailto:{{email}}">{{email}}</a></td>
+                        <td>{{addressStreet}}, {{addressCity}}, {{addressProvince}}</td>
+                        <td>{{status}}</td>
+                        <td><a href="/students?course={{course}}">{{course}}</a></td>
+                        <td>
+                            <a href="/student/delete/{{studentNum}}" class="btn btn-danger">Remove</a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                    {{#unless students.length}}
+                    <tr>
+                        <td colspan="7" class="text-center">
+                            <strong>{{message}}</strong>
+                        </td>
+                    </tr>
+                    {{/unless}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-md-12">
+        <br>
+        <h2>Courses</h2>
+        <hr />
+        <!-- Button to add a new course -->
+        <a href="/courses/add" class="btn btn-success float-end">Add New Course</a>
+        
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Course Code</th>
+                        <th>Course Description</th>
+                        <th></th> <!-- Empty header for the remove column -->
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each courses}}
+                    <tr>
+                        <td><a href="/course/{{courseId}}">{{courseCode}}</a></td>
+                        <td><a href="/students?course={{courseId}}">{{courseDescription}}</a></td>
+                        <td>
+                            <!-- Remove button linked to the delete route -->
+                            <a href="/courses/delete/{{courseId}}" class="btn btn-danger">Remove</a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                    {{#unless courses.length}}
+                    <tr>
+                        <td colspan="4" class="text-center">
+                            <strong>{{message}}</strong>
+                        </td>
+                    </tr>
+                    {{/unless}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
